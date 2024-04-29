@@ -10,20 +10,23 @@ env:
 
 jobs:
   build-and-test:
-    name: Build on ${{ matrix.os }} for jdk${{ matrix.java-version }}
+    name: Build with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}
     strategy:
       fail-fast: false
       matrix:
         java-version:
           - 17
-          - 21
+          # - 21
         os:
-          - ubuntu-20.04
+          # - ubuntu-20.04
           - ubuntu-22.04
-          - macos-12
+          # - macos-12
           - macos-13
-          - windows-2019
+          # - windows-2019
           - windows-2022
+        gpg-plugin-version:
+          - "3.1.0"
+          - "3.2.4"
 
     runs-on: ${{ matrix.os }}
 
@@ -50,4 +53,5 @@ jobs:
       - name: "Build and test"
         shell: bash
         run: |
+          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version" -D "newVersion=${{ matrix.gpg-plugin-version }}"
           ./mvnw --batch-mode --show-version clean verify
