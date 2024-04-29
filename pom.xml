@@ -172,8 +172,8 @@
                     <configuration>
                         <bestPractices>true</bestPractices>
                         <gpgArguments>
-                            <arg>--pinentry-mode</arg>
-                            <arg>loopback</arg>
+                            <!--<arg>&#45;&#45;pinentry-mode</arg>-->
+                            <!--<arg>loopback</arg>-->
                             <arg>--debug-level</arg>
                             <arg>advanced</arg>
                             <arg>--debug-all</arg>
