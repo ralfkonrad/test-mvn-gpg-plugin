@@ -1,4 +1,4 @@
-name: Build and test for different runners
+name: Build and sign for different runners
 
 on:
   push: {}
@@ -9,8 +9,8 @@ env:
   MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
 jobs:
-  build-and-test:
-    name: Build with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}
+  build-and-sign:
+    name: Build and sign with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}
     strategy:
       fail-fast: false
       matrix:
@@ -67,7 +67,7 @@ jobs:
         run: |
           ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version" -D "newVersion=${{ matrix.gpg-plugin-version }}"
 
-      - name: "Build and test"
+      - name: "Build and sign"
         shell: bash
         run: |
           ./mvnw --batch-mode --show-version clean verify
