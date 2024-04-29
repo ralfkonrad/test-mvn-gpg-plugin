@@ -46,6 +46,7 @@ jobs:
       - name: "Check gpg setup"
         shell: bash
         run: |
+          where gpg
           gpg --version
           gpg --list-keys
           gpg --list-secret-keys
