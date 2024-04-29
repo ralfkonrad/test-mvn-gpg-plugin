@@ -6,7 +6,6 @@ on:
   workflow_dispatch: {}
 
 env:
-  GPG_SECRET_KEY:       ${{ secrets.GPG_SECRET_KEY }}
   MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
 
 jobs:
@@ -37,7 +36,7 @@ jobs:
         with:
           java-version:    ${{ matrix.java-version }}
           distribution:    "temurin"
-          gpg-private-key: ${{ env.GPG_SECRET_KEY }}
+          gpg-private-key: ${{ secrets.GPG_SECRET_KEY }}
           gpg-passphrase:  MAVEN_GPG_PASSPHRASE
           cache:           maven
 
