@@ -40,7 +40,14 @@ jobs:
           gpg-passphrase:  MAVEN_GPG_PASSPHRASE
           cache:           maven
 
+      - name: "Check gpg setup"
+        shell: bash
+        run: |
+          gpg --version
+          gpg --list-keys
+          gpg --list-secret-keys
+
       - name: "Build and test"
         shell: bash
         run: |
-          ./mvnw clean verify
+          ./mvnw --batch-mode --show-version clean verify
