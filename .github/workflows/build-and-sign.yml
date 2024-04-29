@@ -50,18 +50,26 @@ jobs:
           gpg --list-keys
           gpg --list-secret-keys
 
-      - name: "Path to gpg on non-Windows"
-        if: runner.os != 'Windows'
+      - name: "Check gpg setup on Linux"
+        if: runner.os == 'Linux'
         shell: bash
         run: |
           which gpg
+          cat /home/runner/.m2/settings.xml
+
+      - name: "Check gpg setup on macOs"
+        if: runner.os == 'macOs'
+        shell: bash
+        run: |
+          which gpg
+          cat /Users/runner/.m2/settings.xml
 
       - name: "Check gpg setup on Windows"
         if: runner.os == 'Windows'
         shell: powershell
         run: |
           where.exe gpg
-          cat "C:\Users\runneradmin\.m2\settings.xml"
+          cat C:\Users\runneradmin\.m2\settings.xml
 
       - name: "Set maven-gpg-plugin.version to v${{ matrix.gpg-plugin-version }}"
         shell: bash
