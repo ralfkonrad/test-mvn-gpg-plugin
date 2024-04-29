@@ -64,4 +64,4 @@ jobs:
         run: |
           where.exe gpg
           ./mvnw.cmd --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version" -D "newVersion=${{ matrix.gpg-plugin-version }}"
-          ./mvnw.cmd --batch-mode --show-version clean verify
+          ./mvnw.cmd --batch-mode --show-version clean verify -D "gpg.executable=C:\Program Files\Git\usr\bin\gpg.exe"
