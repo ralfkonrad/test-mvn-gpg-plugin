@@ -61,10 +61,13 @@ jobs:
         shell: powershell
         run: |
           where.exe gpg
-          Get-Command gpg
+
+      - name: "Set maven-gpg-plugin.version to v${{ matrix.gpg-plugin-version }}"
+        shell: bash
+        run: |
+          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version" -D "newVersion=${{ matrix.gpg-plugin-version }}"
 
       - name: "Build and test"
         shell: bash
         run: |
-          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version" -D "newVersion=${{ matrix.gpg-plugin-version }}"
           ./mvnw --batch-mode --show-version clean verify
