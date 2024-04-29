@@ -166,11 +166,11 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>3.2.4</version>
+                    <version>3.1.0</version>
                     <configuration>
                         <gpgArguments>
-                            <!--<arg>&#45;&#45;pinentry-mode</arg>-->
-                            <!--<arg>loopback</arg>-->
+                            <arg>--pinentry-mode</arg>
+                            <arg>loopback</arg>
                             <arg>--debug-level</arg>
                             <arg>advanced</arg>
                             <arg>--debug-all</arg>
