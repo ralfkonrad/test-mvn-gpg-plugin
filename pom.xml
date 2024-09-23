@@ -84,6 +84,21 @@
         </dependency>
     </dependencies>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+            <id>apache-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -178,6 +193,7 @@
                             <arg>advanced</arg>
                             <arg>--debug-all</arg>
                         </gpgArguments>
+                        <passphraseLf>false</passphraseLf>
                     </configuration>
                     <executions>
                         <execution>
