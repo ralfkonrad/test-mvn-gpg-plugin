@@ -193,7 +193,7 @@
                             <arg>advanced</arg>
                             <arg>--debug-all</arg>
                         </gpgArguments>
-                        <passphraseLf>false</passphraseLf>
+                        <passphraseLf>true</passphraseLf>
                     </configuration>
                     <executions>
                         <execution>
