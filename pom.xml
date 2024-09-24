@@ -193,8 +193,8 @@
                             <arg>--debug-level</arg>
                             <arg>advanced</arg>
                             <arg>--debug-all</arg>
-                            <passphraseLf>${maven-gpg-plugin.passphraseLf}</passphraseLf>
                         </gpgArguments>
+                        <passphraseLf>${maven-gpg-plugin.passphraseLf}</passphraseLf>
                     </configuration>
                     <executions>
                         <execution>
