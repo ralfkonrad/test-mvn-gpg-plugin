@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-and-sign:
-    name: "Build and sign with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}, passphraseLf: ${{ matrix.gpg-plugin-passphraseLf }}"
+    name: "Build and sign with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}"
     strategy:
       fail-fast: false
       matrix:
@@ -30,9 +30,6 @@ jobs:
           - "3.1.0"
           - "3.2.6"
           - "3.2.7-SNAPSHOT"
-        gpg-plugin-passphraseLf:
-          - "true"
-          - "false"
 
     runs-on: ${{ matrix.os }}
 
@@ -81,7 +78,6 @@ jobs:
         shell: bash
         run: |
           ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version"      -D "newVersion=${{ matrix.gpg-plugin-version }}"
-          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.passphraseLf" -D "newVersion=${{ matrix.gpg-plugin-passphraseLf }}"
 
       - name: "Build and sign"
         shell: bash

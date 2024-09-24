@@ -43,7 +43,6 @@
 
     <properties>
         <maven-gpg-plugin.version>3.2.7-SNAPSHOT</maven-gpg-plugin.version>
-        <maven-gpg-plugin.passphraseLf>true</maven-gpg-plugin.passphraseLf>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -194,7 +193,6 @@
                             <arg>advanced</arg>
                             <arg>--debug-all</arg>
                         </gpgArguments>
-                        <passphraseLf>${maven-gpg-plugin.passphraseLf}</passphraseLf>
                     </configuration>
                     <executions>
                         <execution>
