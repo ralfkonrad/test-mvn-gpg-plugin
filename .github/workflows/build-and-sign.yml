@@ -4,6 +4,8 @@ on:
   push: { }
   pull_request: { }
   workflow_dispatch: { }
+  schedule:
+    - cron: '23 2 * * *'
 
 env:
   MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
