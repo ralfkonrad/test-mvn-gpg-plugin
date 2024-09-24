@@ -42,7 +42,7 @@
     </issueManagement>
 
     <properties>
-        <maven-gpg-plugin.version>3.2.6</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.2.7-SNAPSHOT</maven-gpg-plugin.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -83,6 +83,21 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+            <id>apache-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <pluginManagement>
@@ -158,7 +173,7 @@
                                             versions!</message>
                                         <banLatest>true</banLatest>
                                         <banRelease>true</banRelease>
-                                        <banSnapshots>true</banSnapshots>
+                                        <banSnapshots>false</banSnapshots>
                                     </requirePluginVersions>
                                 </rules>
                             </configuration>
