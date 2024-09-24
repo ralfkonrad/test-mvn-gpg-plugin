@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-and-sign:
-    name: Build and sign with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}
+    name: "Build and sign with gpg-plugin v${{ matrix.gpg-plugin-version }}, ${{ matrix.os }}, jdk${{ matrix.java-version }}, passphraseLf: ${{ matrix.gpg-plugin-passphraseLf }}"
     strategy:
       fail-fast: false
       matrix:
