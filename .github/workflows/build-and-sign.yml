@@ -30,6 +30,9 @@ jobs:
           - "3.1.0"
           - "3.2.6"
           - "3.2.7-SNAPSHOT"
+        gpg-plugin-passphraseLf:
+          - "true"
+          - "false"
 
     runs-on: ${{ matrix.os }}
 
@@ -77,7 +80,8 @@ jobs:
       - name: "Set maven-gpg-plugin.version to v${{ matrix.gpg-plugin-version }}"
         shell: bash
         run: |
-          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version" -D "newVersion=${{ matrix.gpg-plugin-version }}"
+          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.version"      -D "newVersion=${{ matrix.gpg-plugin-version }}"
+          ./mvnw --batch-mode --show-version versions:set-property -D "property=maven-gpg-plugin.passphraseLf" -D "newVersion=${{ matrix.gpg-plugin-passphraseLf }}"
 
       - name: "Build and sign"
         shell: bash
