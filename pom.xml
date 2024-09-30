@@ -42,7 +42,7 @@
     </issueManagement>
 
     <properties>
-        <maven-gpg-plugin.version>3.2.7-SNAPSHOT</maven-gpg-plugin.version>
+        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
