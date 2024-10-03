@@ -29,7 +29,7 @@ jobs:
         gpg-plugin-version:
           - "3.1.0"
           # - "3.2.6"     # disabled as it fails
-          - "3.2.7-SNAPSHOT"
+          - "3.2.7"
 
     runs-on: ${{ matrix.os }}
 
